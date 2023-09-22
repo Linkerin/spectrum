@@ -1,0 +1,12 @@
+export { default as Spectrum } from './spectrum';
+export { default as adjustHsl } from './utils/adjustHsl';
+export { default as adjustRgb } from './utils/adjustRgb';
+export { default as colorMix } from './utils/colorMix';
+export { default as createPalette } from './utils/createPalette';
+export { default as hexToRgb } from './utils/hexToRgb';
+export { default as hslToRgb } from './utils/hslToRgb';
+export { default as invert } from './utils/invert';
+export { default as rgbObjToHex } from './utils/rgbObjToHex';
+export { default as rgbObjToHsl } from './utils/rgbObjToHsl';
+export { default as setHsl } from './utils/setHsl';
+export { default as setRgb } from './utils/setRgb';

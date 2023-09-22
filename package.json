@@ -1,0 +1,51 @@
+{
+  "name": "@snipshot/spectrum",
+  "version": "0.0.1",
+  "description": "Lightweight JS/TS library aimed to operate with color values",
+  "source": "src/index.ts",
+  "main": "lib/main.js",
+  "types": "lib/types.d.ts",
+  "module": "lib/module.js",
+  "scripts": {
+    "watch": "parcel watch",
+    "build": "parcel build",
+    "test": "jest --coverage",
+    "lint": "eslint . --fix",
+    "check": "tsc --noEmit"
+  },
+  "jest": {
+    "preset": "ts-jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Linkerin/spectrum.git"
+  },
+  "keywords": [
+    "spectrum",
+    "color",
+    "rgb",
+    "hsl",
+    "hex"
+  ],
+  "author": "Alexey Gusev (Linkerin)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Linkerin/spectrum/issues"
+  },
+  "homepage": "https://github.com/Linkerin/spectrum#readme",
+  "devDependencies": {
+    "@parcel/packager-ts": "^2.9.3",
+    "@parcel/transformer-typescript-types": "^2.9.3",
+    "@types/jest": "^29.5.5",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "jest": "^29.7.0",
+    "parcel": "^2.9.3",
+    "prettier": "^3.0.3",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2"
+  }
+}

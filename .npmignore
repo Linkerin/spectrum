@@ -1,0 +1,13 @@
+.github
+.vscode
+.eslintignore
+.eslintrc
+**/.eslintrc.js
+**/.eslintignore
+**/.parcel-cache
+**/.github/README.md
+tsconfig.json
+jest.config.js
+coverage/
+src/
+readme_assets/
