@@ -12,6 +12,9 @@ import _checkWeightValue from './_checkWeightValue';
  * @returns {Spectrum} A new `Spectrum` instance representing the inverted color
  * @throws {TypeError} If `colorObj` is not an instance of `Spectrum` class
  * @throws {Error} If the weight is not a valid number
+ *
+ * To get an overview what a negative color is:
+ * @see {@link https://en.wikipedia.org/wiki/Negative_(photography)#Negative_film | Wikipedia | Negative (photography)}
  */
 function invert(colorObj: Spectrum, weight: number): Spectrum {
   if (!(colorObj instanceof Spectrum)) {
