@@ -1,6 +1,6 @@
 import colorMix from './colorMix';
 import Spectrum from '../spectrum';
-import _checkWeightValue from './_checkWeightValue';
+import _checkWeightValue from '../utils/_checkWeightValue';
 
 /**
  * Inverts the color of a `Spectrum` instance according to the weight

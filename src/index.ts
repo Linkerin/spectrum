@@ -1,12 +1,15 @@
-export { default as Spectrum } from './spectrum';
-export { default as adjustHsl } from './utils/adjustHsl';
-export { default as adjustRgb } from './utils/adjustRgb';
-export { default as colorMix } from './utils/colorMix';
-export { default as createPalette } from './utils/createPalette';
-export { default as hexToRgb } from './utils/hexToRgb';
-export { default as hslToRgb } from './utils/hslToRgb';
-export { default as invert } from './utils/invert';
-export { default as rgbObjToHex } from './utils/rgbObjToHex';
-export { default as rgbObjToHsl } from './utils/rgbObjToHsl';
-export { default as setHsl } from './utils/setHsl';
-export { default as setRgb } from './utils/setRgb';
+import Spectrum from './spectrum';
+
+export { default as adjustHsl } from './methods/adjustHsl';
+export { default as adjustRgb } from './methods/adjustRgb';
+export { default as colorMix } from './methods/colorMix';
+export { default as createPalette } from './methods/createPalette';
+export { default as hexToRgb } from './methods/hexToRgb';
+export { default as hslToRgb } from './methods/hslToRgb';
+export { default as invert } from './methods/invert';
+export { default as rgbObjToHex } from './methods/rgbObjToHex';
+export { default as rgbObjToHsl } from './methods/rgbObjToHsl';
+export { default as setHsl } from './methods/setHsl';
+export { default as setRgb } from './methods/setRgb';
+
+export default Spectrum;

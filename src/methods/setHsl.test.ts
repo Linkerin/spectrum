@@ -45,7 +45,6 @@ describe('setHsl', () => {
 
   it('should not modify the original Spectrum object when updating HSL values and accept percentage values', () => {
     const colorObj = new Spectrum('hsl', [180, 0.5, 0.5, 1]);
-    const initialHslObj = colorObj.hsl;
     const updatedColorObj = setHsl(colorObj, {
       hue: 200,
       saturation: '60%',

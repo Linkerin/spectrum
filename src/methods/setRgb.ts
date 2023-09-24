@@ -1,6 +1,6 @@
 import { RgbChangeOptions } from '../spectrum.types.js';
 import Spectrum from '../spectrum';
-import validateValue from './validateValue';
+import _validateValue from '../utils/_validateValue';
 
 /**
  * Modifies the RGB values of a color from the Spectrum instance.
@@ -23,16 +23,16 @@ function setRgb(colorObj: Spectrum, options: RgbChangeOptions): Spectrum {
   const rgbObj = { ...colorObj.rgb };
   const validKeys = ['red', 'green', 'blue'];
 
-  for (let [key, value] of Object.entries(options)) {
+  for (const [key, value] of Object.entries(options)) {
     if (value !== undefined) {
       if (key !== 'alpha' && validKeys.includes(key)) {
         const channel = key[0].toLowerCase() as 'r' | 'g' | 'b';
-        rgbObj[channel] = validateValue('rgb', value);
+        rgbObj[channel] = _validateValue('rgb', value);
       }
     }
 
     if (key === 'alpha') {
-      rgbObj.a = validateValue('alpha', value);
+      rgbObj.a = _validateValue('alpha', value);
     }
   }
 

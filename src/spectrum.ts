@@ -1,9 +1,9 @@
 import { ColorSpace, HslObj, InputValue, RgbObj } from './spectrum.types';
-import hexToRgb from './utils/hexToRgb';
-import hslToRgb from './utils/hslToRgb';
-import rgbObjToHex from './utils/rgbObjToHex';
-import rgbObjToHsl from './utils/rgbObjToHsl';
-import validateValue from './utils/validateValue';
+import hexToRgb from './methods/hexToRgb';
+import hslToRgb from './methods/hslToRgb';
+import rgbObjToHex from './methods/rgbObjToHex';
+import rgbObjToHsl from './methods/rgbObjToHsl';
+import _validateValue from './utils/_validateValue';
 
 /**
  * Represents a color in different color spaces (hex, hsl, rgb).
@@ -139,10 +139,10 @@ export default class Spectrum {
       throw new Error(`Invalid RGB values array: ${colorValue}`);
     }
 
-    const r = validateValue('rgb', valuesArray[0]);
-    const g = validateValue('rgb', valuesArray[1]);
-    const b = validateValue('rgb', valuesArray[2]);
-    const a = validateValue('alpha', valuesArray[3]);
+    const r = _validateValue('rgb', valuesArray[0]);
+    const g = _validateValue('rgb', valuesArray[1]);
+    const b = _validateValue('rgb', valuesArray[2]);
+    const a = _validateValue('alpha', valuesArray[3]);
 
     return { r, g, b, a };
   }
@@ -163,10 +163,10 @@ export default class Spectrum {
       throw new Error(`Invalid HSL values array: ${colorValue}`);
     }
 
-    const h = validateValue('hue', valuesArray[0]);
-    const s = validateValue('saturation', valuesArray[1]);
-    const l = validateValue('lightness', valuesArray[2]);
-    const a = validateValue('alpha', valuesArray[3]);
+    const h = _validateValue('hue', valuesArray[0]);
+    const s = _validateValue('saturation', valuesArray[1]);
+    const l = _validateValue('lightness', valuesArray[2]);
+    const a = _validateValue('alpha', valuesArray[3]);
 
     return { h, s, l, a };
   }

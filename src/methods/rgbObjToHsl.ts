@@ -1,5 +1,5 @@
 import { HslObj, RgbObj } from '../spectrum.types';
-import validateValue from './validateValue';
+import _validateValue from '../utils/_validateValue';
 
 /**
  * Calculates the lightness value of an RGB color object
@@ -85,10 +85,10 @@ function rgbObjToHsl(rgbObj: RgbObj): HslObj {
   const { r, g, b, a } = rgbObj;
 
   const rgb = {
-    r: validateValue('rgb', r),
-    g: validateValue('rgb', g),
-    b: validateValue('rgb', b),
-    a: validateValue('alpha', a)
+    r: _validateValue('rgb', r),
+    g: _validateValue('rgb', g),
+    b: _validateValue('rgb', b),
+    a: _validateValue('alpha', a)
   };
 
   const h = hueFromRgb(rgb);

@@ -1,6 +1,6 @@
 import Spectrum from '../spectrum';
-import _checkNumericValue from './_checkNumericValue';
-import _clampValues from './_clampValues';
+import _checkNumericValue from '../utils/_checkNumericValue';
+import _clampValues from '../utils/_clampValues';
 
 export interface HslOptions {
   hue?: number;

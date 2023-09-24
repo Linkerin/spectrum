@@ -1,5 +1,5 @@
 import Spectrum from '../spectrum';
-import _checkWeightValue from './_checkWeightValue';
+import _checkWeightValue from '../utils/_checkWeightValue';
 
 /**
  * Mixes two RGB colors according to the weight

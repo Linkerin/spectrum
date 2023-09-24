@@ -16,33 +16,36 @@ export type ValidationKeyType =
  * @returns {number} The validated and converted value based on the given type.
  * @throws Error if the value is invalid.
  */
-function validateValue(type: ValidationKeyType, value: any): number {
+function _validateValue(type: ValidationKeyType, value: unknown): number {
   switch (type) {
-    case 'hue':
-      const h = Number.parseInt(value);
+    case 'hue': {
+      const h = Number.parseInt(value as string);
       if (isNaN(h) || h > 360 || h < 0) {
         throw new Error(`Invalid hue value: ${value})}`);
       }
 
       return h;
+    }
 
-    case 'saturation':
+    case 'saturation': {
       const s = _toFloat(value);
       if (s === null || s > 1 || s < 0) {
         throw new Error(`Invalid saturation value: ${value}`);
       }
 
       return s;
+    }
 
-    case 'lightness':
+    case 'lightness': {
       const l = _toFloat(value);
       if (l === null || l > 1 || l < 0) {
         throw new Error(`Invalid lightness value: ${value}`);
       }
 
       return l;
+    }
 
-    case 'alpha':
+    case 'alpha': {
       let a = _toFloat(value);
       if (a === null) a = 1;
 
@@ -52,18 +55,20 @@ function validateValue(type: ValidationKeyType, value: any): number {
       a = Number(a.toFixed(2));
 
       return a;
+    }
 
-    case 'rgb':
-      const channel = Number.parseInt(value);
+    case 'rgb': {
+      const channel = Number.parseInt(value as string);
       if (isNaN(channel) || channel > 255 || channel < 0) {
         throw new Error(`Invalid RGB value: ${value}`);
       }
 
       return channel;
+    }
 
     default:
       throw new Error(`Invalid type for value validation: '${type}'`);
   }
 }
 
-export default validateValue;
+export default _validateValue;

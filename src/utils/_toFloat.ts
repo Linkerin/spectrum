@@ -4,7 +4,7 @@
  * @param {string | number} value The value to be converted
  * @returns {number | null} Converted number if it was possible or `null`
  */
-function _toFloat(value: string | number): number | null {
+function _toFloat(value: unknown): number | null {
   if (typeof value !== 'string' && typeof value !== 'number') return null;
 
   let converted;

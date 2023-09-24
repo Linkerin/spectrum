@@ -19,13 +19,11 @@ describe('_toFloat', () => {
   });
 
   it('should return null when given null', () => {
-    // @ts-expect-error
     const result = _toFloat(null);
     expect(result).toBeNull();
   });
 
   it('should return null when given undefined', () => {
-    // @ts-expect-error
     const result = _toFloat(undefined);
     expect(result).toBeNull();
   });

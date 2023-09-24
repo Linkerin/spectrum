@@ -1,5 +1,5 @@
 import Spectrum from '../spectrum';
-import validateValue, { ValidationKeyType } from './validateValue';
+import _validateValue, { ValidationKeyType } from '../utils/_validateValue';
 
 export interface HslOptions {
   hue?: number;
@@ -29,13 +29,13 @@ function setHsl(colorObj: Spectrum, options: HslOptions): Spectrum {
     throw new TypeError('Color value has to be an instance of Spectrum class');
   }
 
-  let hslObj = { ...colorObj.hsl };
+  const hslObj = { ...colorObj.hsl };
   const validKeys = ['hue', 'saturation', 'lightness', 'alpha'];
 
-  for (let [key, value] of Object.entries(options)) {
+  for (const [key, value] of Object.entries(options)) {
     if (value !== undefined && validKeys.includes(key)) {
       const channel = key[0].toLowerCase() as 'h' | 's' | 'l' | 'a';
-      hslObj[channel] = validateValue(
+      hslObj[channel] = _validateValue(
         key as Exclude<ValidationKeyType, 'rgb'>,
         value
       );

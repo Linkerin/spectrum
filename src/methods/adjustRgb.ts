@@ -1,7 +1,7 @@
 import Spectrum from '../spectrum';
 import { RgbChangeOptions } from '../spectrum.types';
-import _checkNumericValue from './_checkNumericValue';
-import _clampValues from './_clampValues';
+import _checkNumericValue from '../utils/_checkNumericValue';
+import _clampValues from '../utils/_clampValues';
 
 interface RgbOptions extends Omit<RgbChangeOptions, 'alpha'> {
   alpha?: number;
@@ -11,7 +11,7 @@ interface RgbOptions extends Omit<RgbChangeOptions, 'alpha'> {
  * Adjusts the RGB values of a color object based on the provided options.
  * Returns a new `Spectrum` instance with the updated RGB values.
  *
- * @param {Spectrum }colorObj - Instance of `Spectrum` to adjust.
+ * @param {Spectrum} colorObj - Instance of `Spectrum` to adjust.
  * @param options - An object containing optional properties for adjusting the RGB values
  * @param options.red - The amount to adjust the red value of the color object.
  * @param options.green - The amount to adjust the green value of the color object.

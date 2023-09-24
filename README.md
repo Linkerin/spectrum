@@ -1,8 +1,10 @@
 [![spectrum logo](./readme_assets/spectrum.svg)](https://github.com/Linkerin/spectrum#readme)
 
 [![npm](https://img.shields.io/npm/dw/%40snipshot/spectrum?style=for-the-badge&logo=npm&label=NPM)](https://www.npmjs.com/package/@snipshot/spectrum)
-[![TS Support](https://img.shields.io/badge/TS-supported-%233178C6?style=for-the-badge&logo=typescript)](#)
-[![MIT License](https://img.shields.io/badge/License-MIT-%230B936A?style=for-the-badge)](https://github.com/Linkerin/spectrum/blob/main/LICENSE)
+[![MIT License](https://img.shields.io/badge/License-MIT-%23A31F34?style=for-the-badge)](https://github.com/Linkerin/spectrum/blob/main/LICENSE)
+[![TS Support](https://img.shields.io/github/languages/top/Linkerin/spectrum?style=for-the-badge&logo=typescript)](https://github.com/search?q=repo%3ALinkerin%2Fspectrum++language%3ATypeScript&type=code)
+[![minified size](https://img.shields.io/bundlejs/size/%40snipshot%2Fspectrum?style=for-the-badge&label=MINIFIED%20SIZE&color=0B936A)](https://bundlephobia.com/package/@snipshot/spectrum)
+[![Link to the docs site](https://img.shields.io/badge/API-DOCS-%23C7740F?style=for-the-badge&logo=readthedocs&logoColor=DF8211)](https://spectrum.snipshot.dev)
 
 # Spectrum - сonverting colors with ease 🎨
 
@@ -34,7 +36,7 @@ console.log(adjustedColor.hex); // #236aa9cc
 Getting started with Spectrum is a breeze. Import the `Spectrum` class into your project and create an instance:
 
 ```javascript
-import { Spectrum } from '@snipshot/spectrum';
+import Spectrum from '@snipshot/spectrum';
 
 const spectrum = new Spectrum('rgb', '255 255 0'); // yellow
 ```
@@ -48,7 +50,7 @@ That's it! `Spectrum` instance provides several methods to reveal information ab
 ```javascript
 spectrum.hex; // #ffff00
 spectrum.hsl; // { h: 60, s: 1, l: 0.5, a: 1 }
-spectrum.rgb; // {r: 255, g: 255, b: 0, a: 1}
+spectrum.rgb; // { r: 255, g: 255, b: 0, a: 1 }
 ```
 
 > By default, alpha channel value is `1` if it was not provided during initialization
@@ -68,7 +70,7 @@ spectrum.lightness; // 0.5
 ### Mixing colors
 
 ```javascript
-import { Spectrum, colorMix } from '@snipshot/spectrum';
+import Spectrum, { colorMix } from '@snipshot/spectrum';
 
 const red = new Spectrum('hex', '#f00');
 const blue = new Spectrum('rgb', '0, 0, 255, 1');
@@ -83,7 +85,7 @@ console.log(purple.hex); // #800080
 Suppose that you need to set lightness equal to 50%. Here is how you can do it:
 
 ```javascript
-import { Spectrum, setHsl } from '@snipshot/spectrum';
+import Spectrum, { setHsl } from '@snipshot/spectrum';
 
 const darkgreen = new Spectrum('hex', '#006400');
 const green = setHsl(darkgreen, { lightness: 0.5 });
@@ -96,7 +98,7 @@ console.log(green.hsl); // {h: 120, s: 0.98, l: 0.5, a: 1}
 You can get a reversed or negative color from your color using the `invert()` function:
 
 ```javascript
-import { Spectrum, invert } from '@snipshot/spectrum';
+import Spectrum, { invert } from '@snipshot/spectrum';
 
 const yellow = new Spectrum('rgb', [255, 255, 0]);
 const negativeColor = invert(yellow, 1); // 1 is a weight of the inverted color
@@ -109,7 +111,7 @@ console.log(negativeColor.rgb); // { r: 0, g: 0, b: 255, a: 1 } - blue
 To generate a color palette from a given color of varios lightness it will be handy to use a `createPalette()` function. It returns an object with keys from 0 to 100 with step 1 and `Spectrum` instances as values with lightness set from 0 to 100.
 
 ```javascript
-import { Spectrum, invert } from '@snipshot/spectrum';
+import Spectrum, { invert } from '@snipshot/spectrum';
 
 const cyan = new Spectrum('hex', '#0ff');
 const palette = createPalette(cyan);

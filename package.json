@@ -1,6 +1,6 @@
 {
   "name": "@snipshot/spectrum",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Spectrum is a lightweight JavaScript / TypeScript library designed to simplify color manipulation and conversion tasks within the RGB, HSL, and HEX color spaces",
   "source": "src/index.ts",
   "main": "lib/main.js",
@@ -10,8 +10,9 @@
     "watch": "parcel watch",
     "build": "parcel build",
     "test": "jest --coverage",
-    "lint": "eslint . --fix",
-    "check": "tsc --noEmit"
+    "lint": "eslint .",
+    "check": "tsc --noEmit",
+    "ci": "npm run check && npm run lint && npm run test && npm run build"
   },
   "jest": {
     "preset": "ts-jest"

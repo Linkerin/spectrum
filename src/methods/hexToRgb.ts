@@ -1,5 +1,5 @@
 import { InputValue } from '../spectrum.types';
-import validateValue from './validateValue';
+import _validateValue from '../utils/_validateValue';
 
 /**
  * Converts a hexadecimal color value to its corresponding RGB values
@@ -35,10 +35,10 @@ function hexToRgb(colorValue: InputValue) {
       .join('');
   }
 
-  const r = validateValue('rgb', parseInt(hexColor.slice(0, 2), 16));
-  const g = validateValue('rgb', parseInt(hexColor.slice(2, 4), 16));
-  const b = validateValue('rgb', parseInt(hexColor.slice(4, 6), 16));
-  const a = validateValue('alpha', parseInt(hexColor.slice(6, 8), 16) / 255);
+  const r = _validateValue('rgb', parseInt(hexColor.slice(0, 2), 16));
+  const g = _validateValue('rgb', parseInt(hexColor.slice(2, 4), 16));
+  const b = _validateValue('rgb', parseInt(hexColor.slice(4, 6), 16));
+  const a = _validateValue('alpha', parseInt(hexColor.slice(6, 8), 16) / 255);
 
   return { r, g, b, a };
 }

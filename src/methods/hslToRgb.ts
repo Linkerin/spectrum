@@ -1,5 +1,5 @@
 import { HslObj, RgbObj } from '../spectrum.types';
-import validateValue from './validateValue';
+import _validateValue from '../utils/_validateValue';
 
 /**
  * Converts a color from HSL color space to RGB object
@@ -13,10 +13,10 @@ import validateValue from './validateValue';
 function hslToRgb(hslObj: HslObj): RgbObj {
   const { h: hue, s: saturation, l: lightness, a: alpha } = hslObj;
 
-  const h = validateValue('hue', hue);
-  const s = validateValue('saturation', saturation);
-  const l = validateValue('lightness', lightness);
-  const a = validateValue('alpha', alpha);
+  const h = _validateValue('hue', hue);
+  const s = _validateValue('saturation', saturation);
+  const l = _validateValue('lightness', lightness);
+  const a = _validateValue('alpha', alpha);
 
   const chroma = s * (1 - Math.abs(2 * l - 1));
   const hPrime = h / 60;

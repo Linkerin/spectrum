@@ -1,5 +1,5 @@
 import { RgbObj } from '../spectrum.types';
-import validateValue from './validateValue';
+import _validateValue from '../utils/_validateValue';
 
 /**
  * Converts a number representing an RGB color channel to its corresponding hexadecimal value.
@@ -26,10 +26,10 @@ function toHex(channel: number): string {
 function rgbObjToHex(rgbObj: RgbObj): string {
   const { r: red, g: green, b: blue, a: alpha } = rgbObj;
 
-  const r = validateValue('rgb', red);
-  const g = validateValue('rgb', green);
-  const b = validateValue('rgb', blue);
-  const a = validateValue('alpha', alpha);
+  const r = _validateValue('rgb', red);
+  const g = _validateValue('rgb', green);
+  const b = _validateValue('rgb', blue);
+  const a = _validateValue('alpha', alpha);
 
   let hex = `#${toHex(r)}${toHex(g)}${toHex(b)}`;
 
