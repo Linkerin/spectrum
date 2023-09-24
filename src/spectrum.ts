@@ -10,6 +10,8 @@ import _validateValue from './utils/_validateValue';
  * Spectrum instances can be used with various methods
  * to convert between color spaces and access individual color channels.
  *
+ * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/ | Spectrum API | Spectrum}
+ *
  * @example
  * // Create a Spectrum instance from a hex color value
  * const spectrum = new Spectrum('hex', '#FF0000');
@@ -54,6 +56,9 @@ export default class Spectrum {
   }
 
   /**
+   * Retrieves the RGB object of the instance
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#rgb | Spectrum API | Spectrum - rgb}
+   *
    * @returns {RgbObj} An RGB object
    */
   get rgb(): RgbObj {
@@ -61,6 +66,9 @@ export default class Spectrum {
   }
 
   /**
+   * Retrieves the HSL object of the instance
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#hsl | Spectrum API | Spectrum - hsl}
+   *
    * @returns {HslObj} A HSL object
    */
   get hsl(): HslObj {
@@ -68,56 +76,64 @@ export default class Spectrum {
   }
 
   /**
-   * Returns `hex` value of the color
+   * Returns the `hex` value of the color
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#hex | Spectrum API | Spectrum - hex}
    */
   get hex(): string {
     return this._hex;
   }
 
   /**
-   * Returns alpha channel value of the color
+   * Returns the alpha channel value of the color
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#alpha | Spectrum API | Spectrum - alpha}
    */
   get alpha(): number {
     return this._rgb.a;
   }
 
   /**
-   * Returns red channel value of the color
+   * Returns the red channel value of the color
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#red | Spectrum API | Spectrum - red}
    */
   get red(): number {
     return this._rgb.r;
   }
 
   /**
-   * Returns green channel value of the color
+   * Returns the green channel value of the color
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#green | Spectrum API | Spectrum - green}
    */
   get green(): number {
     return this._rgb.g;
   }
 
   /**
-   * Returns blue channel value of the color
+   * Returns the blue channel value of the color
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#blue | Spectrum API | Spectrum - blue}
    */
   get blue(): number {
     return this._rgb.b;
   }
 
   /**
-   * Returns hue value of the color
+   * Returns the hue value of the color
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#hue | Spectrum API | Spectrum - hue}
    */
   get hue() {
     return this._hsl.h;
   }
 
   /**
-   * Returns saturation value of the color
+   * Returns the saturation value of the color
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#saturation | Spectrum API | Spectrum - saturation}
    */
   get saturation() {
     return this._hsl.s;
   }
 
   /**
-   * Returns lightness value of the color
+   * Returns the lightness value of the color
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#lightness | Spectrum API | Spectrum - lightness}
    */
   get lightness() {
     return this._hsl.l;
@@ -133,7 +149,7 @@ export default class Spectrum {
 
     const valuesArray = Array.isArray(colorValue)
       ? colorValue
-      : colorValue.split(/,\s|\s/); // split by ', ' or ' '
+      : colorValue.split(/,\s?|\s/); // split by ', ' or ' '
 
     if (valuesArray.length !== 3 && valuesArray.length !== 4) {
       throw new Error(`Invalid RGB values array: ${colorValue}`);
@@ -157,7 +173,7 @@ export default class Spectrum {
 
     const valuesArray = Array.isArray(colorValue)
       ? colorValue
-      : colorValue.split(/,\s|\s/); // split by ', ' or ' '
+      : colorValue.split(/,\s?|\s/); // split by ', ' or ' '
 
     if (valuesArray.length !== 3 && valuesArray.length !== 4) {
       throw new Error(`Invalid HSL values array: ${colorValue}`);
@@ -173,6 +189,7 @@ export default class Spectrum {
 
   /**
    * Creates a new instance of the `Spectrum` class using an HSL object as an input.
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#fromhslobj/ | Spectrum API | Spectrum - fromHslObj()}
    *
    * @param hslObj - An object representing the HSL color values
    * with properties `h` (hue), `s` (saturation), `l` (lightness), and `a` (alpha).
@@ -200,6 +217,7 @@ export default class Spectrum {
 
   /**
    * Creates a new instance of the `Spectrum` class using an RGB object as an input.
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#fromrgbobj/ | Spectrum API | Spectrum - fromRgbObj()}
    *
    * @param rgbObj - An object representing the RGB color values
    * with properties `r` (red), `g` (green), `b` (blue), and `a` (alpha).

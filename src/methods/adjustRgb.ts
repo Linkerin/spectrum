@@ -10,6 +10,7 @@ interface RgbOptions extends Omit<RgbChangeOptions, 'alpha'> {
 /**
  * Adjusts the RGB values of a color object based on the provided options.
  * Returns a new `Spectrum` instance with the updated RGB values.
+ * @see {@link https://spectrum.snipshot.dev/docs/adjust-rgb/ | Spectrum API | adjustRgb()}
  *
  * @param {Spectrum} colorObj - Instance of `Spectrum` to adjust.
  * @param options - An object containing optional properties for adjusting the RGB values

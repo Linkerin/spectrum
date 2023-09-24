@@ -40,6 +40,7 @@ export function _checkSAndLValue(
 /**
  * Adjusts the HSL values of a color object based on the provided options.
  * Returns a new `Spectrum` instance with the updated HSL values.
+ * @see {@link https://spectrum.snipshot.dev/docs/adjust-hsl/ | Spectrum API | adjustHsl()}
  *
  * @param {Spectrum} colorObj - Instance of `Spectrum` to adjust.
  * @param options - An object containing optional properties for adjusting the HSL values

@@ -3,6 +3,7 @@ import _validateValue from '../utils/_validateValue';
 
 /**
  * Converts a hexadecimal color value to its corresponding RGB values
+ * @see {@link https://spectrum.snipshot.dev/docs/hex-to-rgb/ | Spectrum API | hexToRgb()}
  *
  * @param colorValue - The hexadecimal color value to be converted to RGB
  * @returns An object containing the RGB values (r, g, b) and the alpha value (a) of the converted color

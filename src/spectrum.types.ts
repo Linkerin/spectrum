@@ -12,6 +12,7 @@ export type ColorSpace = 'hex' | 'hsl' | 'rgb';
 
 /**
  * Generated HSL object type
+ * @see {@link https://spectrum.snipshot.dev/docs/types#hslobj/ | Spectrum API | Types - HslObj}
  */
 export interface HslObj {
   h: number;
@@ -27,6 +28,8 @@ export type InputValue = string | Array<string | number>;
 
 /**
  * Generated RGB object type
+ * @see {@link https://spectrum.snipshot.dev/docs/types#rgbobj/ | Spectrum API | Types - RgbObj}
+
  */
 export interface RgbObj {
   r: number;

@@ -74,6 +74,7 @@ function hueFromRgb(rgbObj: RgbObj): number {
 }
 /**
  * Converts an RGB object to its corresponding HSL values
+ * @see {@link https://spectrum.snipshot.dev/docs/rgb-obj-to-hsl/ | Spectrum API | rgbObjToHsl()}
  *
  * @param rgbObj - An RGB object
  * @returns A HSL object

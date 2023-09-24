@@ -5,6 +5,7 @@ import setHsl from './setHsl';
  * Creates a palette object based on a given `Spectrum` instance.
  * Each key in the palette object represents a lightness value from 0 to 100,
  * and the corresponding value is a `Spectrum` object.
+ * @see {@link https://spectrum.snipshot.dev/docs/create-palette/ | Spectrum API | createPalette()}
  *
  * @param {Spectrum} colorObj - The base color for the palette as a Spectrum object.
  * @returns A palette object with lightness values from 0 to 100 as keys and corresponding Spectrum objects.

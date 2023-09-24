@@ -4,6 +4,7 @@ import _checkWeightValue from '../utils/_checkWeightValue';
 /**
  * Mixes two RGB colors according to the weight
  * and returns a new `Spectrum` instance with the resulting color.
+ * @see {@link https://spectrum.snipshot.dev/docs/color-mix/ | Spectrum API | colorMix()}
  *
  * @param {Spectrum} color1 - The first color to mix, `Spectrum` instance.
  * @param {Spectrum} color2 - The second color to mix, `Spectrum` instance.

@@ -10,7 +10,7 @@
 
 Spectrum is a lightweight JavaScript / TypeScript library designed to simplify color manipulation and conversion tasks within the `RGB`, `HSL`, and `HEX` color spaces.
 
-It may be not the most extensive library out there, but it's precisely what you need if you want to mix two colors, darken the color or adjust saturation of the color value you were provided in `hex`. We see it as a finely-tuned instrument focused on simplifying the most common color tasks.
+It may be not the most extensive library out there, but it’s precisely what you need for common color-related tasks. Whether you want to blend two colors, get a darker version of your color, or the saturation of a HEX color value. Spectrum is your finely-tuned instrument for simplifying these processes.
 
 ## Installation
 
@@ -21,7 +21,7 @@ npm i @snipshot/spectrum
 ## Example
 
 ```javascript
-import { Spectrum, adjustHsl } from '@snipshot/spectrum';
+import Spectrum, { adjustHsl } from '@snipshot/spectrum';
 
 const spectrum = new Spectrum('hsl', [231, 0.66, 0.53, 0.8]);
 
@@ -33,7 +33,7 @@ console.log(adjustedColor.hex); // #236aa9cc
 
 ## Main usage
 
-Getting started with Spectrum is a breeze. Import the `Spectrum` class into your project and create an instance:
+Getting started with Spectrum is a breeze. Import the [`Spectrum`](https://spectrum.snipshot.dev/docs/spectrum-class/) class into your project and create an instance:
 
 ```javascript
 import Spectrum from '@snipshot/spectrum';
@@ -95,7 +95,7 @@ console.log(green.hsl); // {h: 120, s: 0.98, l: 0.5, a: 1}
 
 ### Negative color
 
-You can get a reversed or negative color from your color using the `invert()` function:
+You can get a reversed or negative color from your color using the [`invert()`](https://spectrum.snipshot.dev/docs/invert/) function:
 
 ```javascript
 import Spectrum, { invert } from '@snipshot/spectrum';
@@ -108,10 +108,10 @@ console.log(negativeColor.rgb); // { r: 0, g: 0, b: 255, a: 1 } - blue
 
 ### Create a color palette
 
-To generate a color palette from a given color of varios lightness it will be handy to use a `createPalette()` function. It returns an object with keys from 0 to 100 with step 1 and `Spectrum` instances as values with lightness set from 0 to 100.
+To generate a color palette from a given color of various lightness it will be handy to use a [`createPalette()`](https://spectrum.snipshot.dev/docs/create-palette/) function. It returns an object with keys from 0 to 100 with step 1 and `Spectrum` instances as values with lightness set from 0 to 100.
 
 ```javascript
-import Spectrum, { invert } from '@snipshot/spectrum';
+import Spectrum, { createPalette } from '@snipshot/spectrum';
 
 const cyan = new Spectrum('hex', '#0ff');
 const palette = createPalette(cyan);
@@ -123,7 +123,7 @@ console.log(palette[100].hsl); // { h: 180, s: 1, l: 1, a: 1 } - white
 
 ## API Documentation
 
-Detailed API description and use cases will be available soon on [spectrum.snipshot.dev](https://spectrum.snipshot.dev). Stay tuned!
+We can find the detailed API description and use cases on [spectrum.snipshot.dev](https://spectrum.snipshot.dev).
 
 ## Contributions
 

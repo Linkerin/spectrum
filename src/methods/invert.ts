@@ -5,6 +5,7 @@ import _checkWeightValue from '../utils/_checkWeightValue';
 /**
  * Inverts the color of a `Spectrum` instance according to the weight
  * and returns a new `Spectrum` instance
+ * @see {@link https://spectrum.snipshot.dev/docs/invert/ | Spectrum API | invert()}
  *
  * @param {Spectrum} colorObj - The original color
  * @param {number} weight - The weight of the inverted color in the final result.

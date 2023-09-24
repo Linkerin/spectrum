@@ -11,6 +11,7 @@ export interface HslOptions {
 /**
  * Modifies the HSL values of a color from the Spectrum instance.
  * Returns a new `Spectrum` instance with the updated HSL values.
+ * @see {@link https://spectrum.snipshot.dev/docs/set-hsl/ | Spectrum API | setHsl()}
  *
  * @param colorObj - An instance of the `Spectrum` class representing a color
  * @param options - An object containing optional hue, saturation, lightness, and alpha values.
@@ -19,7 +20,7 @@ export interface HslOptions {
  * Should be a percentage string in the range ['0%', '100%'] or a number in the range [0, 1].
  * @param options.lightness - The value that will be set as a lightness value of the color.
  * Should be a percentage string in the range ['0%', '100%'] or a number in the range [0, 1].
- * @param options.alpha - he value that will be set as a hue value of the color.
+ * @param options.alpha - The value that will be set as an alpha value of the color.
  * Should be a percentage string in the range ['0%', '100%'] or a number in the range [0, 1].
  * @returns {Spectrum} A new Spectrum object with the updated HSL values.
  * @throws {TypeError} - If colorObj is not an instance of the Spectrum class.

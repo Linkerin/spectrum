@@ -3,6 +3,7 @@ import _validateValue from '../utils/_validateValue';
 
 /**
  * Converts a color from HSL color space to RGB object
+ * @see {@link https://spectrum.snipshot.dev/docs/hsl-to-rgb/ | Spectrum API | hslToRgb()}
  *
  * @param hslObj - A HSL color object
  * @returns An RGB color object

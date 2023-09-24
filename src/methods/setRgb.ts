@@ -5,6 +5,7 @@ import _validateValue from '../utils/_validateValue';
 /**
  * Modifies the RGB values of a color from the Spectrum instance.
  * Returns a new `Spectrum` instance with the updated RGB values.
+ * @see {@link https://spectrum.snipshot.dev/docs/set-rgb/ | Spectrum API | setRgb()}
  *
  * @param colorObj - An instance of the `Spectrum` class representing a color
  * @param options - An object containing optional red, green, blue, and alpha values.

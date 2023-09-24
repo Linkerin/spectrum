@@ -50,9 +50,15 @@ describe('Spectrum', () => {
   it('should create a new instance of Spectrum with valid rgb color value', () => {
     const arrayValue = [100, 150, 200];
     const stringValue = '100 150 200';
-    const stringValueWithCommas = '100, 150, 200';
+    const stringValueWithCommasAndSpaces = '100, 150, 200';
+    const stringValueWithCommas = '100,150,200';
 
-    for (const option of [arrayValue, stringValue, stringValueWithCommas]) {
+    for (const option of [
+      arrayValue,
+      stringValue,
+      stringValueWithCommasAndSpaces,
+      stringValueWithCommas
+    ]) {
       const rgbColor = new Spectrum('rgb', option);
       expect(rgbColor.rgb).toEqual({ r: 100, g: 150, b: 200, a: 1 });
       expect(rgbColor.hsl).toEqual({
@@ -68,9 +74,15 @@ describe('Spectrum', () => {
   it('should create a new instance of Spectrum with valid hsl color value', () => {
     const arrayValue = [230, 0.35, 0.2, 0.89];
     const stringValue = '230 0.35 0.2 0.89';
-    const stringValueWithCommas = '230, 0.35, 0.2, 0.89';
+    const stringValueWithCommasAndSpaces = '230, 0.35, 0.2, 0.89';
+    const stringValueWithCommas = '230,0.35,0.2,0.89';
 
-    for (const option of [arrayValue, stringValue, stringValueWithCommas]) {
+    for (const option of [
+      arrayValue,
+      stringValue,
+      stringValueWithCommasAndSpaces,
+      stringValueWithCommas
+    ]) {
       const hslColor = new Spectrum('hsl', option);
       expect(hslColor.rgb).toEqual({ r: 33, g: 39, b: 69, a: 0.89 });
       expect(hslColor.hsl).toEqual({ h: 230, s: 0.35, l: 0.2, a: 0.89 });

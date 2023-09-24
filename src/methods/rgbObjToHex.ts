@@ -19,6 +19,7 @@ function toHex(channel: number): string {
 
 /**
  * Converts an RGB object to its corresponding hexadecimal color code.
+ * @see {@link https://spectrum.snipshot.dev/docs/rgb-obj-to-hex/ | Spectrum API | rgbObjToHex()}
  *
  * @param rgbObj - An object representing the RGB color values.
  * @returns {string} The hexadecimal color code representing the RGB color values.
