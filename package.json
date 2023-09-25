@@ -1,6 +1,6 @@
 {
   "name": "@snipshot/spectrum",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Spectrum is a lightweight JavaScript / TypeScript library designed to simplify color manipulation and conversion tasks within the RGB, HSL, and HEX color spaces",
   "source": "src/index.ts",
   "main": "lib/main.js",
