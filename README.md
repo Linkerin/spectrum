@@ -123,7 +123,7 @@ console.log(palette[100].hsl); // { h: 180, s: 1, l: 1, a: 1 } - white
 
 ## API Documentation
 
-We can find the detailed API description and use cases on [spectrum.snipshot.dev](https://spectrum.snipshot.dev).
+You can find the detailed API description and use cases on [spectrum.snipshot.dev](https://spectrum.snipshot.dev).
 
 ## Contributions
 
