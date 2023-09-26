@@ -1,4 +1,4 @@
-[![spectrum logo](./readme_assets/spectrum.svg)](https://github.com/Linkerin/spectrum#readme)
+[![spectrum logo](./readme_assets/spectrum.svg)](https://spectrum.snipshot.dev)
 
 [![npm](https://img.shields.io/npm/dw/%40snipshot/spectrum?style=for-the-badge&logo=npm&label=NPM)](https://www.npmjs.com/package/@snipshot/spectrum)
 [![MIT License](https://img.shields.io/badge/License-MIT-%23A31F34?style=for-the-badge)](https://github.com/Linkerin/spectrum/blob/main/LICENSE)
@@ -6,7 +6,7 @@
 [![minified size](https://img.shields.io/bundlejs/size/%40snipshot%2Fspectrum?style=for-the-badge&label=MINIFIED%20SIZE&color=0B936A)](https://bundlephobia.com/package/@snipshot/spectrum)
 [![Link to the docs site](https://img.shields.io/badge/API-DOCS-%23C7740F?style=for-the-badge&logo=readthedocs&logoColor=DF8211)](https://spectrum.snipshot.dev)
 
-# Spectrum - сonverting colors with ease 🎨
+# Spectrum - manipulating colors with ease 🎨
 
 Spectrum is a lightweight JavaScript / TypeScript library designed to simplify color manipulation and conversion tasks within the `RGB`, `HSL`, and `HEX` color spaces.
 
@@ -131,7 +131,7 @@ Contributions are always welcome! If you have ideas for improvements or new feat
 
 ## Contacts
 
-If you have any questions or need assistance, feel free to contact me at [gusev@snipshot.dev](mailto:gusev@snipshot.dev.).
+If you have any questions or need assistance, feel free to contact us at [spectrum@snipshot.dev](mailto:spectrum@snipshot.dev).
 
 ## License
 
