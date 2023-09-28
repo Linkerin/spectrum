@@ -50,6 +50,19 @@ describe('onBgColor', () => {
     expect(result).toBe(options.light);
   });
 
+  // MediumSlateBlue - https://www.w3schools.com/colors/color_tryit.asp?color=MediumSlateBlue
+  it('should return the "light" value when the background is medium slate blue', () => {
+    const mediumSlateBlue = new Spectrum('hex', '7B68EE');
+    const options = {
+      dark: new Spectrum('hex', '#111'),
+      light: new Spectrum('hex', '#eee')
+    };
+
+    const result = onBgColor(mediumSlateBlue, options);
+
+    expect(result).toBe(options.light);
+  });
+
   it('should properly handle Spectrum instances as options values', () => {
     const colorObj = new Spectrum('hex', '5e68ba');
     const options = {
