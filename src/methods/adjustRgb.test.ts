@@ -21,9 +21,9 @@ describe('adjustRgb', () => {
   });
 
   it('should adjust the alpha value of a color object and return a new Spectrum instance with the updated RGB values', () => {
-    const color = new Spectrum('rgb', [255, 0, 0, 1]);
-    const adjustedColor = adjustRgb(color, { alpha: -0.5 });
-    expect(adjustedColor.rgb).toEqual({ r: 255, g: 0, b: 0, a: 0.5 });
+    const color = new Spectrum('rgb', [255, 0, 0, 0.67]);
+    const adjustedColor = adjustRgb(color, { alpha: -0.1 });
+    expect(adjustedColor.rgb).toEqual({ r: 255, g: 0, b: 0, a: 0.57 });
   });
 
   it('should adjust multiple values and return a new Spectrum instance with the updated RGB values', () => {

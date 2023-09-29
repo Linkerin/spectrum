@@ -2,6 +2,7 @@ import Spectrum from '../spectrum';
 import { RgbChangeOptions } from '../spectrum.types';
 import _checkNumericValue from '../utils/_checkNumericValue';
 import _clampValues from '../utils/_clampValues';
+import _sumFloat from '../utils/_sumFloat';
 
 interface RgbOptions extends Omit<RgbChangeOptions, 'alpha'> {
   alpha?: number;
@@ -47,7 +48,7 @@ function adjustRgb(colorObj: Spectrum, options: RgbOptions): Spectrum {
 
       if (key === 'alpha') {
         _checkNumericValue(value, 'Alpha');
-        rgbObj.a = _clampValues(0, 1, Number((rgbObj.a + value).toFixed(2)));
+        rgbObj.a = _clampValues(0, 1, _sumFloat(rgbObj.a, value));
       }
     }
   }

@@ -116,7 +116,7 @@ describe('adjustHsl', () => {
   });
 
   it('should not modify original Spectrum instance', () => {
-    const colorObj = new Spectrum('hsl', [180, 0.5, 0.5, 0.5]);
+    const colorObj = new Spectrum('hsl', [180, 0.4, 0.5, 0.5]);
     const options = {
       hue: -20,
       saturation: '-10%',
@@ -127,7 +127,7 @@ describe('adjustHsl', () => {
     const adjustedColorObj = adjustHsl(colorObj, options);
 
     expect(adjustedColorObj.hsl).not.toEqual(colorObj.hsl);
-    expect(adjustedColorObj.hsl).toEqual({ h: 160, s: 0.4, l: 0.62, a: 0.4 });
+    expect(adjustedColorObj.hsl).toEqual({ h: 160, s: 0.3, l: 0.62, a: 0.4 });
   });
 
   it('should adjust saturation and alpha values of a color object', () => {
@@ -140,6 +140,18 @@ describe('adjustHsl', () => {
     const adjustedColorObj = adjustHsl(colorObj, options);
 
     expect(adjustedColorObj.hsl).toEqual({ h: 180, s: 0, l: 0.5, a: 1 });
+  });
+
+  it('should adjust lightness and alpha values of a color object', () => {
+    const colorObj = new Spectrum('hsl', [180, 0.3, 0.5, 0.67]);
+    const options = {
+      lightness: '-13%',
+      alpha: -0.1
+    };
+
+    const adjustedColorObj = adjustHsl(colorObj, options);
+
+    expect(adjustedColorObj.hsl).toEqual({ h: 180, s: 0.3, l: 0.37, a: 0.57 });
   });
 
   it('should not adjust any values of a color object when no options are provided', () => {

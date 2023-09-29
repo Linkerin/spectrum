@@ -1,6 +1,7 @@
 import Spectrum from '../spectrum';
 import _checkNumericValue from '../utils/_checkNumericValue';
 import _clampValues from '../utils/_clampValues';
+import _sumFloat from '../utils/_sumFloat';
 
 export interface HslOptions {
   hue?: number;
@@ -73,20 +74,20 @@ function adjustHsl(
     _checkSAndLValue(saturation, 'Saturation');
 
     const adjustmentValue = Math.round(parseInt(saturation)) / 100;
-    hslObj.s = _clampValues(0, 1, hslObj.s + adjustmentValue); // valid range [0; 1]
+    hslObj.s = _clampValues(0, 1, _sumFloat(hslObj.s, adjustmentValue)); // valid range [0; 1]
   }
 
   if (lightness !== undefined) {
     _checkSAndLValue(lightness, 'Lightness');
 
     const adjustmentValue = Math.round(parseInt(lightness)) / 100;
-    hslObj.l = _clampValues(0, 1, hslObj.l + adjustmentValue); // valid range [0; 1]
+    hslObj.l = _clampValues(0, 1, _sumFloat(hslObj.l, adjustmentValue)); // valid range [0; 1]
   }
 
   if (alpha !== undefined) {
     _checkNumericValue(alpha, 'Alpha');
 
-    hslObj.a = _clampValues(0, 1, Number((hslObj.a + alpha).toFixed(2))); // valid range [0; 1]
+    hslObj.a = _clampValues(0, 1, _sumFloat(hslObj.a, alpha)); // valid range [0; 1]
   }
 
   return Spectrum.fromHslObj(hslObj);
