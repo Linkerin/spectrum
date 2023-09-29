@@ -36,6 +36,18 @@ describe('_sumFloat', () => {
     expect(_sumFloat(0.0001, 0.0002)).toBe(0);
   });
 
+  it('should throw an error when one or both inputs are NaN', () => {
+    expect(() => _sumFloat(NaN, 5)).toThrowError(
+      'Invalid argument: one or more arguments is `NaN`'
+    );
+    expect(() => _sumFloat(2, NaN)).toThrowError(
+      'Invalid argument: one or more arguments is `NaN`'
+    );
+    expect(() => _sumFloat(NaN, NaN)).toThrowError(
+      'Invalid argument: one or more arguments is `NaN`'
+    );
+  });
+
   it('should throw an error when one or both inputs are non-numeric', () => {
     // @ts-expect-error
     expect(() => _sumFloat('a', 5)).toThrowError(TypeError);
