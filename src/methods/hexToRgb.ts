@@ -1,4 +1,4 @@
-import { InputValue } from '../spectrum.types';
+import { InputValue, RgbObj } from '../spectrum.types';
 import _validateValue from '../utils/_validateValue';
 
 /**
@@ -10,7 +10,7 @@ import _validateValue from '../utils/_validateValue';
  * @throws {Error} If the color value is not a string or if no color value was provided
  * @throws {Error} If the HEX color value is invalid
  */
-function hexToRgb(colorValue: InputValue) {
+function hexToRgb(colorValue: InputValue): RgbObj {
   if (!colorValue) {
     throw new Error('No color value was provided');
   }

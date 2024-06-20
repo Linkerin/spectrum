@@ -12,7 +12,10 @@ import Spectrum from '../spectrum';
  * For more information about split complementary colors:
  * @see {@link https://www.color-meanings.com/split-complementary-colors/ | Color Meanings }
  */
-function getSplitComplementary(colorObj: Spectrum) {
+function getSplitComplementary(colorObj: Spectrum): {
+  secondary: Spectrum;
+  tertiary: Spectrum;
+} {
   if (!(colorObj instanceof Spectrum)) {
     throw new TypeError('Color value has to be an instance of Spectrum class');
   }

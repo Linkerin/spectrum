@@ -18,7 +18,7 @@ import setHsl from './setHsl';
  * console.log(palette[50].hsl); // { h: 180, s: 0.5, l: 0.5, a: 1 }
  * console.log(palette[100].hsl); // { h: 180, s: 0.5, l: 1, a: 1 }
  */
-function createPalette(colorObj: Spectrum) {
+function createPalette(colorObj: Spectrum): Record<string, Spectrum> {
   if (!(colorObj instanceof Spectrum)) {
     throw new TypeError('Color value has to be an instance of Spectrum class');
   }

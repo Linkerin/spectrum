@@ -119,7 +119,7 @@ export default class Spectrum {
    * Returns the hue value of the color
    * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#hue | Spectrum API | Spectrum - hue}
    */
-  get hue() {
+  get hue(): number {
     return this._hsl.h;
   }
 
@@ -127,7 +127,7 @@ export default class Spectrum {
    * Returns the saturation value of the color
    * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#saturation | Spectrum API | Spectrum - saturation}
    */
-  get saturation() {
+  get saturation(): number {
     return this._hsl.s;
   }
 
@@ -135,7 +135,7 @@ export default class Spectrum {
    * Returns the lightness value of the color
    * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#lightness | Spectrum API | Spectrum - lightness}
    */
-  get lightness() {
+  get lightness(): number {
     return this._hsl.l;
   }
 
