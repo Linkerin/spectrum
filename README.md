@@ -1,6 +1,7 @@
-[![spectrum logo](./readme_assets/spectrum.svg)](https://spectrum.snipshot.dev)
+[![spectrum logo](https://raw.githubusercontent.com/Linkerin/spectrum/main/readme_assets/spectrum.svg)](https://spectrum.snipshot.dev)
 
 [![npm](https://img.shields.io/npm/dw/%40snipshot/spectrum?style=for-the-badge&logo=npm&label=NPM)](https://www.npmjs.com/package/@snipshot/spectrum)
+![JSR Version](https://img.shields.io/jsr/v/%40particles/spectrum?style=for-the-badge&logo=jsr&color=EEB51C)
 [![MIT License](https://img.shields.io/badge/License-MIT-%23A31F34?style=for-the-badge)](https://github.com/Linkerin/spectrum/blob/main/LICENSE)
 [![TS Support](https://img.shields.io/github/languages/top/Linkerin/spectrum?style=for-the-badge&logo=typescript)](https://github.com/search?q=repo%3ALinkerin%2Fspectrum++language%3ATypeScript&type=code)
 [![minified size](https://img.shields.io/bundlejs/size/%40snipshot%2Fspectrum?style=for-the-badge&label=MINIFIED%20SIZE&color=0B936A)](https://bundlephobia.com/package/@snipshot/spectrum)
@@ -8,9 +9,14 @@
 
 # Spectrum - manipulating colors with ease 🎨
 
-Spectrum is a lightweight JavaScript / TypeScript library designed to simplify color manipulation and conversion tasks within the `RGB`, `HSL`, and `HEX` color spaces.
+Spectrum is a lightweight JavaScript / TypeScript library designed to simplify
+color manipulation and conversion tasks within the `RGB`, `HSL`, and `HEX` color
+spaces.
 
-It may be not the most extensive library out there, but it’s precisely what you need for common color-related tasks. Whether you want to blend two colors, get a darker version of your color, or the saturation of a HEX color value. Spectrum is your finely-tuned instrument for simplifying these processes.
+It may be not the most extensive library out there, but it’s precisely what you
+need for common color-related tasks. Whether you want to blend two colors, get a
+darker version of your color, or the saturation of a HEX color value. Spectrum
+is your finely-tuned instrument for simplifying these processes.
 
 ## Installation
 
@@ -33,7 +39,9 @@ console.log(adjustedColor.hex); // #236aa9cc
 
 ## Main usage
 
-Getting started with Spectrum is a breeze. Import the [`Spectrum`](https://spectrum.snipshot.dev/docs/spectrum-class/) class into your project and create an instance:
+Getting started with Spectrum is a breeze. Import the
+[`Spectrum`](https://spectrum.snipshot.dev/docs/spectrum-class/) class into your
+project and create an instance:
 
 ```javascript
 import Spectrum from '@snipshot/spectrum';
@@ -41,11 +49,14 @@ import Spectrum from '@snipshot/spectrum';
 const spectrum = new Spectrum('rgb', '255 255 0'); // yellow
 ```
 
-That's it! `Spectrum` instance provides several methods to reveal information about your color. For color manipulations you can import the function you need. Let's see all of these in action.
+That's it! `Spectrum` instance provides several methods to reveal information
+about your color. For color manipulations you can import the function you need.
+Let's see all of these in action.
 
 ### Color values
 
-`Spectrum` instance has the properties `hex`, `hsl` and `rgb` to reveal the corresponting color values:
+`Spectrum` instance has the properties `hex`, `hsl` and `rgb` to reveal the
+corresponting color values:
 
 ```javascript
 spectrum.hex; // #ffff00
@@ -53,7 +64,8 @@ spectrum.hsl; // { h: 60, s: 1, l: 0.5, a: 1 }
 spectrum.rgb; // { r: 255, g: 255, b: 0, a: 1 }
 ```
 
-> By default, alpha channel value is `1` if it was not provided during initialization
+> By default, alpha channel value is `1` if it was not provided during
+> initialization
 
 You may also find useful other properties which return each value separately:
 
@@ -95,7 +107,8 @@ console.log(green.hsl); // {h: 120, s: 0.98, l: 0.5, a: 1}
 
 ### Negative color
 
-You can get a reversed or negative color from your color using the [`invert()`](https://spectrum.snipshot.dev/docs/invert/) function:
+You can get a reversed or negative color from your color using the
+[`invert()`](https://spectrum.snipshot.dev/docs/invert/) function:
 
 ```javascript
 import Spectrum, { invert } from '@snipshot/spectrum';
@@ -108,7 +121,11 @@ console.log(negativeColor.rgb); // { r: 0, g: 0, b: 255, a: 1 } - blue
 
 ### Create a color palette
 
-To generate a color palette from a given color of various lightness it will be handy to use a [`createPalette()`](https://spectrum.snipshot.dev/docs/create-palette/) function. It returns an object with keys from 0 to 100 with step 1 and `Spectrum` instances as values with lightness set from 0 to 100.
+To generate a color palette from a given color of various lightness it will be
+handy to use a
+[`createPalette()`](https://spectrum.snipshot.dev/docs/create-palette/)
+function. It returns an object with keys from 0 to 100 with step 1 and
+`Spectrum` instances as values with lightness set from 0 to 100.
 
 ```javascript
 import Spectrum, { createPalette } from '@snipshot/spectrum';
@@ -123,18 +140,24 @@ console.log(palette[100].hsl); // { h: 180, s: 1, l: 1, a: 1 } - white
 
 ## API Documentation
 
-You can find the detailed API description and use cases on [spectrum.snipshot.dev](https://spectrum.snipshot.dev).
+You can find the detailed API description and use cases on
+[spectrum.snipshot.dev](https://spectrum.snipshot.dev).
 
 ## Contributions
 
-Contributions are always welcome! If you have ideas for improvements or new features, please [open an issue](https://github.com/Linkerin/spectrum/issues) or submit a [pull request](https://github.com/Linkerin/spectrum/pulls) on GitHub.
+Contributions are always welcome! If you have ideas for improvements or new
+features, please [open an issue](https://github.com/Linkerin/spectrum/issues) or
+submit a [pull request](https://github.com/Linkerin/spectrum/pulls) on GitHub.
 
 ## Contacts
 
-If you have any questions or need assistance, feel free to contact us at [spectrum@snipshot.dev](mailto:spectrum@snipshot.dev).
+If you have any questions or need assistance, feel free to contact us at
+[spectrum@snipshot.dev](mailto:spectrum@snipshot.dev).
 
 ## License
 
-Spectrum is licensed under the MIT License. See the [LICENSE](https://github.com/Linkerin/spectrum/blob/main/LICENSE) file for details.
+Spectrum is licensed under the MIT License. See the
+[LICENSE](https://github.com/Linkerin/spectrum/blob/main/LICENSE) file for
+details.
 
 Happy coding! 😉
