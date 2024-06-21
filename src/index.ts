@@ -8,6 +8,7 @@ export { default as getSplitComplementary } from './methods/getSplitComplementar
 export { default as hexToRgb } from './methods/hexToRgb';
 export { default as hslToRgb } from './methods/hslToRgb';
 export { default as invert } from './methods/invert';
+export { default as onBgColor } from './methods/onBgColor';
 export { default as rgbObjToHex } from './methods/rgbObjToHex';
 export { default as rgbObjToHsl } from './methods/rgbObjToHsl';
 export { default as setHsl } from './methods/setHsl';

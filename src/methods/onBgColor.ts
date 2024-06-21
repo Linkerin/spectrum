@@ -16,7 +16,7 @@ export interface OnBgColorOptions {
  * @returns The dark or light value provided based on the intensity of the background color
  * @throws TypeError if colorObj is not an instance of the Spectrum class
  */
-function onBgColor(colorObj: Spectrum, { dark, light }: OnBgColorOptions) {
+function onBgColor(colorObj: Spectrum, { dark, light }: OnBgColorOptions): string | Spectrum {
   if (!(colorObj instanceof Spectrum)) {
     throw new TypeError('Color value has to be an instance of Spectrum class');
   }
