@@ -1,7 +1,7 @@
 [![spectrum logo](https://raw.githubusercontent.com/Linkerin/spectrum/main/readme_assets/spectrum.svg)](https://spectrum.snipshot.dev)
 
 [![npm](https://img.shields.io/npm/dw/%40snipshot/spectrum?style=for-the-badge&logo=npm&label=NPM)](https://www.npmjs.com/package/@snipshot/spectrum)
-![JSR Version](https://img.shields.io/jsr/v/%40particles/spectrum?style=for-the-badge&logo=jsr&color=EEB51C)
+[![JSR Version](https://img.shields.io/jsr/v/%40particles/spectrum?style=for-the-badge&logo=jsr&color=EEB51C)](https://jsr.io/@particles/spectrum)
 [![MIT License](https://img.shields.io/badge/License-MIT-%23A31F34?style=for-the-badge)](https://github.com/Linkerin/spectrum/blob/main/LICENSE)
 [![TS Support](https://img.shields.io/github/languages/top/Linkerin/spectrum?style=for-the-badge&logo=typescript)](https://github.com/search?q=repo%3ALinkerin%2Fspectrum++language%3ATypeScript&type=code)
 [![minified size](https://img.shields.io/bundlejs/size/%40snipshot%2Fspectrum?style=for-the-badge&label=MINIFIED%20SIZE&color=0B936A)](https://bundlephobia.com/package/@snipshot/spectrum)

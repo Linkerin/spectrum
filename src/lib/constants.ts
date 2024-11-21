@@ -1,4 +1,4 @@
-export const CSS_NAMED_COLORS = Object.freeze({
+export const CSS_NAMED_COLORS = {
   aliceblue: '#f0f8ff',
   antiquewhite: '#faebd7',
   aqua: '#0ff',
@@ -148,4 +148,4 @@ export const CSS_NAMED_COLORS = Object.freeze({
   whitesmoke: '#f5f5f5',
   yellow: '#ff0',
   yellowgreen: '#9acd32'
-});
+} as const;
