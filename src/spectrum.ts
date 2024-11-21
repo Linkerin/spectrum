@@ -1,4 +1,11 @@
-import { ColorSpace, HslObj, InputValue, RgbObj } from './spectrum.types';
+import type {
+  ColorSpace,
+  CssNamedColor,
+  HslObj,
+  InputValue,
+  RgbObj
+} from './spectrum.types';
+import { CSS_NAMED_COLORS } from './lib/constants';
 import hexToRgb from './methods/hexToRgb';
 import hslToRgb from './methods/hslToRgb';
 import rgbObjToHex from './methods/rgbObjToHex';
@@ -28,7 +35,25 @@ export default class Spectrum {
   private _hsl: HslObj;
   private _hex: string;
 
-  constructor(colorSpace: ColorSpace, value: InputValue) {
+  constructor(colorSpace: ColorSpace | CssNamedColor, value?: InputValue) {
+    if (!colorSpace) {
+      throw new Error(
+        'To create a Spectrum instance, you need to provide at least one parameter'
+      );
+    }
+
+    if (!value) {
+      if (!Object.prototype.hasOwnProperty.call(CSS_NAMED_COLORS, colorSpace)) {
+        throw new Error(`Invalid CSS named color value: \`${colorSpace}\``);
+      }
+
+      this._rgb = hexToRgb(CSS_NAMED_COLORS[colorSpace as CssNamedColor]);
+      this._hsl = rgbObjToHsl(this._rgb);
+      this._hex = rgbObjToHex(this._rgb);
+
+      return;
+    }
+
     switch (colorSpace) {
       case 'hex':
         this._rgb = hexToRgb(value);

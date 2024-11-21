@@ -90,6 +90,21 @@ describe('Spectrum', () => {
     }
   });
 
+  it('should create a new instance of Spectrum with a CSS named color', () => {
+    const spectrum = new Spectrum('aliceblue');
+    expect(spectrum.rgb).toEqual({ r: 240, g: 248, b: 255, a: 1 });
+    expect(spectrum.hsl).toEqual({ h: 208, s: 0.98, l: 0.97, a: 1 });
+    expect(spectrum.hex).toEqual('#f0f8ff');
+  });
+
+  it('should create a new instance of Spectrum with a transparent color', () => {
+    const spectrum = new Spectrum('transparent');
+
+    expect(spectrum.rgb).toEqual({ r: 0, g: 0, b: 0, a: 0 });
+    expect(spectrum.hsl).toEqual({ h: 0, s: 0, l: 0, a: 0 });
+    expect(spectrum.hex).toEqual('#00000000');
+  });
+
   it('should return the RGB object of the Spectrum instance', () => {
     const spectrum = new Spectrum('hex', '#ff0000');
     const rgbObj = spectrum.rgb;
@@ -276,9 +291,8 @@ describe('Spectrum', () => {
 
   it('should throw an error when creating a new instance of Spectrum with empty hex value', () => {
     expect(() => {
-      // @ts-expect-error
       new Spectrum('hex');
-    }).toThrow('No color value was provided');
+    }).toThrow('Invalid CSS named color value: `hex`');
   });
 
   it('should throw an error when creating a new instance of Spectrum with hex color value of invalid type', () => {
@@ -302,9 +316,8 @@ describe('Spectrum', () => {
 
   it('should throw an error when creating a new instance of Spectrum with empty rgb color value', () => {
     expect(() => {
-      // @ts-expect-error
       new Spectrum('rgb');
-    }).toThrow('RGB color value has to be a string or an Array');
+    }).toThrow('Invalid CSS named color value: `rgb`');
   });
 
   it('should throw an error when creating a new instance of Spectrum with invalid numeric rgb color value', () => {
@@ -338,6 +351,22 @@ describe('Spectrum', () => {
       // @ts-expect-error
       new Spectrum('invalid', '#ff0000');
     }).toThrow('Invalid color space value');
+  });
+
+  it('should throw an error when creating a new instance of Spectrum with an invalid CSS named color', () => {
+    expect(() => {
+      // @ts-expect-error
+      new Spectrum('invalid-color');
+    }).toThrow('Invalid CSS named color value: `invalid-color`');
+  });
+
+  it('should throw an error when creating a new instance of Spectrum without parameters', () => {
+    expect(() => {
+      // @ts-expect-error
+      new Spectrum();
+    }).toThrow(
+      'To create a Spectrum instance, you need to provide at least one parameter'
+    );
   });
 
   it('should throw an error when creating a new instance using fromRgbObj method with an undefined value', () => {

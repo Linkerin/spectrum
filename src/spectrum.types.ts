@@ -1,3 +1,5 @@
+import type { CSS_NAMED_COLORS } from './lib/constants';
+
 export interface RgbChangeOptions {
   red?: number;
   green?: number;
@@ -9,6 +11,12 @@ export interface RgbChangeOptions {
  * Color spaces supported by `Spectrum` constructor
  */
 export type ColorSpace = 'hex' | 'hsl' | 'rgb';
+
+/**
+ * CSS named colors supported by `Spectrum` constructor
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/named-color | MDN | \<named-color\>}
+ */
+export type CssNamedColor = keyof typeof CSS_NAMED_COLORS;
 
 /**
  * Generated HSL object type

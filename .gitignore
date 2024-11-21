@@ -31,6 +31,6 @@ node_modules/
 # debug
 npm-debug.log*
 
-lib/
+lib/*
 coverage/
 package/
