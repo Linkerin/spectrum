@@ -63,7 +63,7 @@ describe('getSplitComplementary', () => {
 
   it('should return same complementary colors when input color has a hue value of 0 and of 360', () => {
     const colorHue0 = new Spectrum('hsl', [0, 0.5, 0.75, 1]);
-    const colorHue360 = new Spectrum('hsl', [0, 0.5, 0.75, 1]);
+    const colorHue360 = new Spectrum('hsl', [360, 0.5, 0.75, 1]);
 
     const colorsFor0 = getSplitComplementary(colorHue0);
     const colorsFor360 = getSplitComplementary(colorHue360);

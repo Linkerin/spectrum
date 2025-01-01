@@ -43,7 +43,7 @@ export default class Spectrum {
     }
 
     if (!value) {
-      const colorName = colorSpace.toLowerCase();;
+      const colorName = colorSpace.toLowerCase();
       if (!Object.prototype.hasOwnProperty.call(CSS_NAMED_COLORS, colorName)) {
         throw new Error(`Invalid CSS named color value: \`${colorSpace}\``);
       }

@@ -5,6 +5,7 @@ export { default as adjustRgb } from './methods/adjustRgb';
 export { default as colorMix } from './methods/colorMix';
 export { default as createPalette } from './methods/createPalette';
 export { default as getSplitComplementary } from './methods/getSplitComplementary';
+export { default as getTriadic } from './methods/getTriadic';
 export { default as hexToRgb } from './methods/hexToRgb';
 export { default as hslToRgb } from './methods/hslToRgb';
 export { default as invert } from './methods/invert';
