@@ -147,6 +147,14 @@ describe('Spectrum', () => {
     expect(spectrum.hex).toEqual('#f0f8ff');
   });
 
+  it('should create a new instance of Spectrum with a CSS named color case insensitive', () => {
+    // @ts-expect-error
+    const spectrum = new Spectrum('AliceBlue');
+    expect(spectrum.rgb).toEqual({ r: 240, g: 248, b: 255, a: 1 });
+    expect(spectrum.hsl).toEqual({ h: 208, s: 0.98, l: 0.97, a: 1 });
+    expect(spectrum.hex).toEqual('#f0f8ff');
+  });
+
   it('should create a new instance of Spectrum with a transparent color', () => {
     const spectrum = new Spectrum('transparent');
 

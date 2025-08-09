@@ -11,7 +11,7 @@
     "watch": "parcel watch",
     "build": "parcel build",
     "test": "jest --coverage",
-    "test-watch": "jest --watch",
+    "test:watch": "jest --watch",
     "lint": "eslint .",
     "check": "tsc --noEmit",
     "ci": "npm run check && npm run lint && npm run test && npm run build"

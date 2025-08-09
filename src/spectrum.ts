@@ -51,11 +51,12 @@ export default class Spectrum {
     }
 
     if (!value) {
-      if (!Object.prototype.hasOwnProperty.call(CSS_NAMED_COLORS, colorSpace)) {
+      const colorName = colorSpace.toLowerCase();
+      if (!Object.prototype.hasOwnProperty.call(CSS_NAMED_COLORS, colorName)) {
         throw new Error(`Invalid CSS named color value: \`${colorSpace}\``);
       }
 
-      this._rgb = hexToRgb(CSS_NAMED_COLORS[colorSpace as CssNamedColor]);
+      this._rgb = hexToRgb(CSS_NAMED_COLORS[colorName as CssNamedColor]);
       this._hsl = rgbObjToHsl(this._rgb);
       this._hex = rgbObjToHex(this._rgb);
       this._hwb = hslToHwb(this._hsl);
