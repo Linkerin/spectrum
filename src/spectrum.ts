@@ -207,6 +207,46 @@ export default class Spectrum {
     return this._hwb.b;
   }
 
+  /**
+   * CSS `hsl()` string representation of the color
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#tohslstring | Spectrum API | Spectrum - toHslString()}
+   * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl | MDN | hsl}
+   * @example
+   * const spectrum = new Spectrum('hsl', [180, 0.5, 0.85, 0.4]);
+   * spectrum.toHslString(); // hsl(180 50% 85% / 0.4)
+   */
+  toHslString(): string {
+    return `hsl(${this.hue} ${this.saturation * 100}% ${
+      this.lightness * 100
+    }% / ${this.alpha})`;
+  }
+
+  /**
+   * CSS `hwb()` string representation of the color
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#tohslstring | Spectrum API | Spectrum - toHslString()}
+   * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hwb | MDN | hwb}
+   * @example
+   * const spectrum = new Spectrum('hwb', [180, 0.25, 0.35, 0.5]);
+   * spectrum.toHwbString(); // hwb(180 25% 35% / 0.5)
+   */
+  toHwbString(): string {
+    return `hwb(${this.hue} ${this.whiteness * 100}% ${
+      this.blackness * 100
+    }% / ${this.alpha})`;
+  }
+
+  /**
+   * CSS `rgb()` string representation of the
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#torgbstring | Spectrum API | Spectrum - toRgbString()}
+   * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb | MDN | rgb}
+   * @example
+   * const spectrum = new Spectrum('rgb', [255, 130, 60, 0.8]);
+   * spectrum.toRgbString(); // rgb(255 130 60 / 0.8)
+   */
+  toRgbString(): string {
+    return `rgb(${this.red} ${this.green} ${this.blue} / ${this.alpha})`;
+  }
+
   /** Converts `rgb` input into RGB object value */
   #rgbValToRgb(colorValue: InputValue): RgbObj {
     if (!Array.isArray(colorValue) && typeof colorValue !== 'string') {

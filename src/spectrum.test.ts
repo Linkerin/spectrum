@@ -232,6 +232,21 @@ describe('Spectrum', () => {
     expect(spectrum.blackness).toEqual(0.13);
   });
 
+  it('should return the CSS hsl() string representation of the color', () => {
+    const spectrum = new Spectrum('hsl', [180, 0.5, 0.85, 0.4]);
+    expect(spectrum.toHslString()).toBe('hsl(180 50% 85% / 0.4)');
+  });
+
+  it('should return the CSS hwb() string representation of the color', () => {
+    const spectrum = new Spectrum('hwb', [180, 0.25, 0.35, 0.5]);
+    expect(spectrum.toHwbString()).toBe('hwb(180 25% 35% / 0.5)');
+  });
+
+  it('should return the CSS rgb() string representation of the color', () => {
+    const spectrum = new Spectrum('rgb', [255, 130, 60, 0.8]);
+    expect(spectrum.toRgbString()).toBe('rgb(255 130 60 / 0.8)');
+  });
+
   it('should create a new instance of Spectrum using fromHslObj with valid HSL object', () => {
     const hslObj: HslObj = { h: 180, s: 0.5, l: 0.75, a: 1 };
     const spectrum = Spectrum.fromHslObj(hslObj);
