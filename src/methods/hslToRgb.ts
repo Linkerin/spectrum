@@ -1,4 +1,4 @@
-import { HslObj, RgbObj } from '../spectrum.types';
+import type { HslObj, RgbObj } from '../spectrum.types';
 import _validateValue from '../utils/_validateValue';
 
 /**

@@ -1,4 +1,5 @@
-import { HslObj, RgbObj } from '../spectrum.types';
+import type { HslObj, RgbObj } from '../spectrum.types';
+import _clampValues from '../utils/_clampValues';
 import _validateValue from '../utils/_validateValue';
 
 /**
@@ -11,18 +12,18 @@ function lightnessFromRgb(rgbObj: RgbObj): number {
   const { r, g, b } = rgbObj;
   const lightness = (0.5 * (Math.max(r, g, b) + Math.min(r, g, b))) / 255;
 
-  return Number(lightness.toFixed(2));
+  return _clampValues(0, 1, Number(lightness.toFixed(2)));
 }
 /**
- * Calculates the saturation value of an RGB color object
+ * Calculates the saturation and lightness values of an RGB color object
  *
  * @param rgbObj - An RGB object
- * @returns {number} The saturation value of the RGB color, ranging from 0 to 1.
+ * @returns {[number, number]} The [saturation, lightness] values of the RGB color, ranging from 0 to 1.
  */
-function saturationFromRgb(rgbObj: RgbObj): number {
+function saturationAndLightnessFromRgb(rgbObj: RgbObj): [number, number] {
   const lightness = lightnessFromRgb(rgbObj);
 
-  if (lightness === 0 || lightness === 1) return 0;
+  if (lightness === 0 || lightness === 1) return [0, lightness];
 
   const { r, g, b } = rgbObj;
   const saturation =
@@ -30,7 +31,12 @@ function saturationFromRgb(rgbObj: RgbObj): number {
     (1 - Math.abs(1 - 2 * lightness)) /
     255;
 
-  return Number(saturation.toFixed(2));
+  const res: [number, number] = [
+    _clampValues(0, 1, Number(saturation.toFixed(2))),
+    lightness
+  ];
+
+  return res;
 }
 /**
  * Calculates the hue value from an RGB color object
@@ -93,8 +99,7 @@ function rgbObjToHsl(rgbObj: RgbObj): HslObj {
   };
 
   const h = hueFromRgb(rgb);
-  const s = saturationFromRgb(rgb);
-  const l = lightnessFromRgb(rgb);
+  const [s, l] = saturationAndLightnessFromRgb(rgb);
 
   return { h, s, l, a: rgb.a };
 }

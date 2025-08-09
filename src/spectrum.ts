@@ -2,15 +2,22 @@ import type {
   ColorSpace,
   CssNamedColor,
   HslObj,
+  HwbObj,
   InputValue,
   RgbObj
 } from './spectrum.types';
 import { CSS_NAMED_COLORS } from './lib/constants';
 import hexToRgb from './methods/hexToRgb';
+import hslToHwb from './methods/hslToHwb';
 import hslToRgb from './methods/hslToRgb';
+import hwbToHsl from './methods/hwbToHsl';
 import rgbObjToHex from './methods/rgbObjToHex';
 import rgbObjToHsl from './methods/rgbObjToHsl';
 import _validateValue from './utils/_validateValue';
+import _multiplyFloat from './utils/_multiplyFloat';
+
+export const HWB_CONSTRUCTOR_WARNING =
+  'Spectrum: for hwb colors space provided whiteness + blackness ≥ 100%, resulting color will be gray and normalized.';
 
 /**
  * Represents a color in different color spaces (hex, hsl, rgb).
@@ -34,6 +41,7 @@ export default class Spectrum {
   private _rgb: RgbObj;
   private _hsl: HslObj;
   private _hex: string;
+  private _hwb: HwbObj;
 
   constructor(colorSpace: ColorSpace | CssNamedColor, value?: InputValue) {
     if (!colorSpace) {
@@ -50,6 +58,7 @@ export default class Spectrum {
       this._rgb = hexToRgb(CSS_NAMED_COLORS[colorSpace as CssNamedColor]);
       this._hsl = rgbObjToHsl(this._rgb);
       this._hex = rgbObjToHex(this._rgb);
+      this._hwb = hslToHwb(this._hsl);
 
       return;
     }
@@ -58,20 +67,29 @@ export default class Spectrum {
       case 'hex':
         this._rgb = hexToRgb(value);
         this._hsl = rgbObjToHsl(this._rgb);
-
+        this._hwb = hslToHwb(this._hsl);
         break;
 
       case 'hsl': {
         const hslObj = this.#hslValtoHsl(value);
         this._rgb = hslToRgb(hslObj);
         this._hsl = hslObj;
+        this._hwb = hslToHwb(this._hsl);
         break;
       }
 
       case 'rgb':
         this._rgb = this.#rgbValToRgb(value);
         this._hsl = rgbObjToHsl(this._rgb);
+        this._hwb = hslToHwb(this._hsl);
         break;
+
+      case 'hwb': {
+        this._hwb = this.#hwbValtoHwb(value);
+        this._hsl = hwbToHsl(this._hwb);
+        this._rgb = hslToRgb(this._hsl);
+        break;
+      }
 
       default:
         throw new Error('Invalid color space value');
@@ -98,6 +116,14 @@ export default class Spectrum {
    */
   get hsl(): HslObj {
     return Object.assign({}, this._hsl);
+  }
+
+  /**
+   * Retrieves the HWB object of the instance
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#hwb | Spectrum API | Spectrum - hwb}
+   */
+  get hwb(): HwbObj {
+    return Object.assign({}, this._hwb);
   }
 
   /**
@@ -165,8 +191,22 @@ export default class Spectrum {
   }
 
   /**
-   * Converts `rgb` input into RGB object value
+   * Returns the whiteness value of the color
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#whiteness | Spectrum API | Spectrum - whiteness}
    */
+  get whiteness(): number {
+    return this._hwb.w;
+  }
+
+  /**
+   * Returns the blackness value of the color
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#blackness | Spectrum API | Spectrum - blackness}
+   */
+  get blackness(): number {
+    return this._hwb.b;
+  }
+
+  /** Converts `rgb` input into RGB object value */
   #rgbValToRgb(colorValue: InputValue): RgbObj {
     if (!Array.isArray(colorValue) && typeof colorValue !== 'string') {
       throw new Error('RGB color value has to be a string or an Array');
@@ -188,9 +228,7 @@ export default class Spectrum {
     return { r, g, b, a };
   }
 
-  /**
-   * Converts `hsl` input into RGB object value
-   */
+  /** Converts `hsl` input into RGB object value */
   #hslValtoHsl(colorValue: InputValue): HslObj {
     if (!Array.isArray(colorValue) && typeof colorValue !== 'string') {
       throw new Error('HSL color value has to be a string or an Array');
@@ -210,6 +248,37 @@ export default class Spectrum {
     const a = _validateValue('alpha', valuesArray[3]);
 
     return { h, s, l, a };
+  }
+
+  /** Converts `hsl` input into RGB object value */
+  #hwbValtoHwb(colorValue: InputValue): HwbObj {
+    if (!Array.isArray(colorValue) && typeof colorValue !== 'string') {
+      throw new Error('HWB color value has to be a string or an Array');
+    }
+
+    const valuesArray = Array.isArray(colorValue)
+      ? colorValue
+      : colorValue.split(/,\s?|\s/); // split by ', ' or ' '
+
+    if (valuesArray.length !== 3 && valuesArray.length !== 4) {
+      throw new Error(`Invalid HWB values array: ${colorValue}`);
+    }
+
+    const h = _validateValue('hue', valuesArray[0]);
+    let w = _validateValue('whiteness', valuesArray[1]);
+    let b = _validateValue('blackness', valuesArray[2]);
+    const a = _validateValue('alpha', valuesArray[3]);
+
+    const sum = w + b;
+    if (sum >= 1) {
+      console.warn(HWB_CONSTRUCTOR_WARNING);
+
+      const ratio = 1 / sum;
+      w = _multiplyFloat(w, ratio);
+      b = _multiplyFloat(b, ratio);
+    }
+
+    return { h, w, b, a };
   }
 
   /**
@@ -266,5 +335,32 @@ export default class Spectrum {
     }
 
     return new Spectrum('rgb', [r, g, b, a]);
+  }
+
+  /**
+   * Creates a new instance of the `Spectrum` class using an HWB object as an input.
+   * @see {@link https://spectrum.snipshot.dev/docs/spectrum-class/#fromhwbobj/ | Spectrum API | Spectrum - fromHwbObj()}
+   *
+   * @param hwbObj- An object representing the HWB color values
+   * with properties `h` (hue), `w` (whiteness), `b` (blackness), and `a` (alpha).
+   * @returns A new instance of the `Spectrum` class.
+   * @throws {Error} If any of the `h`, `w`, or `b` properties are `undefined`.
+   * @example
+   * const hwbObj = { h: 180, w: 0.5, b: 0.3, a: 1 };
+   * const spectrum = Spectrum.fromHwbObj(hwbObj);
+   * console.log(spectrum.hwb); // { h: 180, w: 0.5, b: 0.3, a: 1 }
+   */
+  static fromHwbObj(hwbObj: HwbObj): Spectrum {
+    const { h, w, b, a } = hwbObj;
+
+    if (
+      typeof h === 'undefined' ||
+      typeof w === 'undefined' ||
+      typeof b === 'undefined'
+    ) {
+      throw new Error('Invalid HWB object');
+    }
+
+    return new Spectrum('hwb', [h, w, b, a]);
   }
 }

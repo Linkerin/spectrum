@@ -10,8 +10,8 @@
 # Spectrum - manipulating colors with ease 🎨
 
 Spectrum is a lightweight JavaScript / TypeScript library designed to simplify
-color manipulation and conversion tasks within the `RGB`, `HSL`, and `HEX` color
-spaces.
+color manipulation and conversion tasks within the `RGB`, `HSL`, `HWB`, and
+`HEX` color spaces.
 
 It may be not the most extensive library out there, but it’s precisely what you
 need for common color-related tasks. Whether you want to blend two colors, get a
@@ -61,6 +61,7 @@ corresponting color values:
 ```javascript
 spectrum.hex; // #ffff00
 spectrum.hsl; // { h: 60, s: 1, l: 0.5, a: 1 }
+spectrum.hwb; // { h: 60, w: 0, b: 0, a: 1 }
 spectrum.rgb; // { r: 255, g: 255, b: 0, a: 1 }
 ```
 
@@ -77,6 +78,8 @@ spectrum.blue; // 0
 spectrum.hue; // 60
 spectrum.saturation; // 1
 spectrum.lightness; // 0.5
+spectrum.whiteness; // 0
+spectrum.blackness; // 0
 ```
 
 ### Mixing colors

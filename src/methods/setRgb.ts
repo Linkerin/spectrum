@@ -1,4 +1,4 @@
-import { RgbChangeOptions } from '../spectrum.types.js';
+import type { RgbChangeOptions } from '../spectrum.types.js';
 import Spectrum from '../spectrum';
 import _validateValue from '../utils/_validateValue';
 
@@ -14,7 +14,7 @@ import _validateValue from '../utils/_validateValue';
  * @param options.blue - The new blue value for the color (0-255).
  * @param options.alpha - The new alpha value for the color (0-1).
  * @returns {Spectrum} A new Spectrum object with the updated RGB values.
- * @throws {TypeError} - If colorObj is not an instance of Spectrum class.
+ * @throws {TypeError} - If `colorObj` is not an instance of Spectrum class.
  */
 function setRgb(colorObj: Spectrum, options: RgbChangeOptions): Spectrum {
   if (!(colorObj instanceof Spectrum)) {

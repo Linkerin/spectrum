@@ -1,7 +1,8 @@
 import Spectrum from '../spectrum';
-import _validateValue, { ValidationKeyType } from '../utils/_validateValue';
+import _validateValue from '../utils/_validateValue';
 
-export interface HslOptions {
+/** HSL options for utility methods */
+interface HslOptions {
   hue?: number;
   saturation?: number | string;
   lightness?: number | string;
@@ -23,7 +24,7 @@ export interface HslOptions {
  * @param options.alpha - The value that will be set as an alpha value of the color.
  * Should be a percentage string in the range ['0%', '100%'] or a number in the range [0, 1].
  * @returns {Spectrum} A new Spectrum object with the updated HSL values.
- * @throws {TypeError} - If colorObj is not an instance of the Spectrum class.
+ * @throws {TypeError} - If `colorObj` is not an instance of the Spectrum class.
  */
 function setHsl(colorObj: Spectrum, options: HslOptions): Spectrum {
   if (!(colorObj instanceof Spectrum)) {
@@ -35,11 +36,9 @@ function setHsl(colorObj: Spectrum, options: HslOptions): Spectrum {
 
   for (const [key, value] of Object.entries(options)) {
     if (value !== undefined && validKeys.includes(key)) {
+      const optionKey = key as keyof HslOptions;
       const channel = key[0].toLowerCase() as 'h' | 's' | 'l' | 'a';
-      hslObj[channel] = _validateValue(
-        key as Exclude<ValidationKeyType, 'rgb'>,
-        value
-      );
+      hslObj[channel] = _validateValue(optionKey, value);
     }
   }
 

@@ -1,4 +1,4 @@
-import { InputValue, RgbObj } from '../spectrum.types';
+import type { InputValue, RgbObj } from '../spectrum.types';
 import _validateValue from '../utils/_validateValue';
 
 /**

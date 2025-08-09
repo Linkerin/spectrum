@@ -1,5 +1,5 @@
 import Spectrum from '../spectrum';
-import { RgbChangeOptions } from '../spectrum.types';
+import type { RgbChangeOptions } from '../spectrum.types';
 import _checkNumericValue from '../utils/_checkNumericValue';
 import _clampValues from '../utils/_clampValues';
 import _sumFloat from '../utils/_sumFloat';

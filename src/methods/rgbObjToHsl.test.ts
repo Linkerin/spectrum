@@ -8,6 +8,13 @@ describe('rgbObjToHsl', () => {
     expect(rgbObjToHsl(rgbObj)).toEqual(expectedHslObj);
   });
 
+  it('should convert a valid RGB object to a valid HSL object, when RGB values are in range [0, 255]', () => {
+    const rgbObj = { r: 252, g: 3, b: 0, a: 1 };
+    const expectedHslObj = { h: 1, s: 1, l: 0.49, a: 1 };
+
+    expect(rgbObjToHsl(rgbObj)).toEqual(expectedHslObj);
+  });
+
   it('should convert a valid RGB object with alpha channel to a valid HSL object', () => {
     const rgbObj = { r: 53, g: 135, b: 29, a: 0.34 };
     const expectedHslObj = { h: 106, s: 0.65, l: 0.32, a: 0.34 };

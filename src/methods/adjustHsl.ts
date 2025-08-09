@@ -1,41 +1,14 @@
 import Spectrum from '../spectrum';
 import _checkNumericValue from '../utils/_checkNumericValue';
+import _checkPercentValue from '../utils/_checkPercentValue';
 import _clampValues from '../utils/_clampValues';
 import _sumFloat from '../utils/_sumFloat';
 
-export interface HslOptions {
+interface HslOptions {
   hue?: number;
   saturation?: string;
   lightness?: string;
   alpha?: number;
-}
-
-/**
- * Validates the saturation and lightness percentage values
- *
- * @param {string} value - The value to be validated
- * @param type - The type of value being validated, either 'Saturation' or 'Lightness'
- * @throws {Error} If the value is not a string or does not match the required format
- * @returns {boolean} `true` if the check is passed otherwise throws an error
- */
-export function _checkSAndLValue(
-  value: string,
-  type: 'Saturation' | 'Lightness'
-): boolean {
-  const percentRangeRegExp = new RegExp(/^[+-]?\d{1,2}(\.\d+)?%|100(\.0+)?%$/);
-  if (typeof value !== 'string') {
-    throw new Error(
-      `Invalid value: '${value}'. ${type} value has to be a string`
-    );
-  }
-
-  if (!percentRangeRegExp.test(value)) {
-    throw new Error(
-      `Invalid value: '${value}'. ${type} value has to be a percent in range [-100%; 100%]`
-    );
-  }
-
-  return true;
 }
 
 /**
@@ -71,14 +44,14 @@ function adjustHsl(
   }
 
   if (saturation !== undefined) {
-    _checkSAndLValue(saturation, 'Saturation');
+    _checkPercentValue(saturation, 'saturation');
 
     const adjustmentValue = Math.round(parseInt(saturation)) / 100;
     hslObj.s = _clampValues(0, 1, _sumFloat(hslObj.s, adjustmentValue)); // valid range [0; 1]
   }
 
   if (lightness !== undefined) {
-    _checkSAndLValue(lightness, 'Lightness');
+    _checkPercentValue(lightness, 'lightness');
 
     const adjustmentValue = Math.round(parseInt(lightness)) / 100;
     hslObj.l = _clampValues(0, 1, _sumFloat(hslObj.l, adjustmentValue)); // valid range [0; 1]

@@ -4,6 +4,8 @@ export type ValidationKeyType =
   | 'hue'
   | 'saturation'
   | 'lightness'
+  | 'whiteness'
+  | 'blackness'
   | 'alpha'
   | 'rgb';
 
@@ -27,22 +29,16 @@ function _validateValue(type: ValidationKeyType, value: unknown): number {
       return h;
     }
 
-    case 'saturation': {
-      const s = _toFloat(value);
-      if (s === null || s > 1 || s < 0) {
-        throw new Error(`Invalid saturation value: ${value}`);
+    case 'saturation':
+    case 'lightness':
+    case 'blackness':
+    case 'whiteness': {
+      const v = _toFloat(value);
+      if (v === null || v > 1 || v < 0) {
+        throw new Error(`Invalid ${type} value: ${value}`);
       }
 
-      return s;
-    }
-
-    case 'lightness': {
-      const l = _toFloat(value);
-      if (l === null || l > 1 || l < 0) {
-        throw new Error(`Invalid lightness value: ${value}`);
-      }
-
-      return l;
+      return v;
     }
 
     case 'alpha': {
