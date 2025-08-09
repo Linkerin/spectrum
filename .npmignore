@@ -1,5 +1,7 @@
 .github
 .vscode
+.qodo
+.parcel-cache
 .eslintignore
 .eslintrc
 **/.eslintrc.js
